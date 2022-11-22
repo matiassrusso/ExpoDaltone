@@ -3,6 +3,7 @@ import {StyleSheet,Text,View,TextInput,TouchableOpacity,Image,} from 'react-nati
 import { mainStyles, loginStyles } from '@styles/styles'
 import { useNavigation } from '@react-navigation/native'
 import { useFonts } from 'expo-font';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 const Registro = () =>  {
@@ -12,6 +13,7 @@ const Registro = () =>  {
 
   
     return (
+      <ScrollView>
 <View style={[styles.container, { padding: 0 }]}>
           <View style={[styles.containerLeft,]}>
           <Text style={[mainStyles.leftText, { paddingBottom: 23, }]}>Crear{"\n"}cuenta </Text>
@@ -20,7 +22,6 @@ const Registro = () =>  {
               style={styles.inputText}
               placeholder="Nombre de usuario"
               placeholderTextColor="#000000"
-              onChangeText={(text) => setUser(text )}
             />
             
           </View>
@@ -30,7 +31,6 @@ const Registro = () =>  {
               placeholder="E-mail"
               keyboardType="email-address"
               placeholderTextColor="#000000"
-              onChangeText={(text) => setEmail(text )}
             />
             
           </View>
@@ -39,7 +39,6 @@ const Registro = () =>  {
               style={styles.inputText}
               placeholder="Contraseña"
               placeholderTextColor="#000000"
-              onChangeText={(text) => setPassword(text )}
             />
             
           </View>
@@ -54,7 +53,7 @@ const Registro = () =>  {
           {/* <TouchableOpacity>
             <Text style={styles.forgot}>Forgot Password?</Text>
           </TouchableOpacity> */}
-          <View style={[styles.loginBtn]}>
+          <View style={[styles.loginBtn,{bottom:10}]}>
           <TouchableOpacity
           onPress={() => navigation.navigate('Inicio')}>
 
@@ -62,15 +61,17 @@ const Registro = () =>  {
           </TouchableOpacity>
           </View>
           
-            <Text style={[styles.inicioText,{paddingTop: 10},{left:10,}]}>Ya tengo cuenta</Text> 
+            <Text style={[styles.inicioText,{paddingTop: 10, left:15,}]}>Ya tengo cuenta</Text> 
             <TouchableOpacity
               onPress={() => navigation.navigate('Inicio')}>
-            <Text style={[styles.inicioText,{color: '#0066CC'},{textDecorationLine: 'underline'}, {left:185},{bottom:31}]}>Iniciar sesion</Text>
+            <Text style={[styles.inicioText,{color: '#0066CC'},{textDecorationLine: 'underline'}, {left:180},{bottom:27.6}]}>Iniciar sesion</Text>
           </TouchableOpacity>
         </View>
       </View>
+      </ScrollView>
     );
   }
+  
   export default Registro
 
 
@@ -109,7 +110,6 @@ const styles = StyleSheet.create({
   inputText: {
     height: 50,
     color: 'black',
-    fontFamily: 'Nunito-light',
     fontSize:24,
     right: 17,
 },
@@ -128,19 +128,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 10,
     marginBottom: 10,
-  fontFamily: 'Nunito-Bold',
   left: 50,
 
   },
   loginText: {
     color: 'black',
     fontSize: 30,
-    fontFamily: 'Nunito-light',
   },
   inicioText :{
     color: 'black',
     fontSize: 23,
-    fontFamily: 'Nunito-light',
 
   },
   

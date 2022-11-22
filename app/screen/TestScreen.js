@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView, StatusBar, KeyboardAvoidingView, TouchableWithoutFeedback, TextInput, TouchableOpacity } from 'react-native';
 import MyTextInput from '@components/MyTextInput'
 import MyButton from '@components/MyButton'
 import color from '@styles/Colors'
@@ -16,9 +16,13 @@ const Test = () =>  {
   const [imageIndex, setImageIndex] = useState(0)
   const [numeroElegido, setNumeroElegido] = useState(null)
 
+  function navigateTo(routeName){  //Function 1 
+    siguienteImagen(numeroElegido)
+    navigation.navigate(routeName)
+  }
   const numImagen = 0
 
-  const varurl = "https://0a33-181-95-201-81.sa.ngrok.io/"
+  const varurl = "https://b0f9-181-231-29-78.sa.ngrok.io"
 
   useEffect(() => {
     if (loading) {
@@ -37,7 +41,7 @@ const Test = () =>  {
  
   function siguienteImagen(num_usuario) {
     enviarDatos(num_usuario)
-    if (imageIndex !== data.length) {
+    if (imageIndex !== data.length-1) {
       setImageIndex(imageIndex + 1)
       setNumeroElegido(null)
       console.log(data.length, "length")
@@ -64,49 +68,50 @@ const Test = () =>  {
   }
 
   return (
+    <KeyboardAvoidingView>    
+    <ScrollView>
+        <View style={[styles.container, { paddingTop:10, bottom:20, paddingBottom:200}]}>
 
-    <SafeAreaView>
-
-      <ScrollView>
-        <View style={[mainStyles.container, { paddingTop:170, paddingBottom: 2000 }]}>
-          <Text style={[mainStyles.btntxt, { color: color.BLACK, fontSize: 66, textAlign: 'left' }]}>Evaluacion</Text>
-          <StatusBar backgroundColor={color.BLACK} translucent={true} />
+          <Text style={[mainStyles.btntxt, { color: 'black', fontSize: 66, top:10}]}>Evaluacion</Text>
+          <StatusBar backgroundColor={'white'} translucent={true} />
 
           {
             data.length > 0 &&
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              <Image source={{ uri: `data:image/jpg;base64,${data[imageIndex].img_testeo}` }}
-                style={{ width: 100, height: 100 }} />
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', top:40 }}>
+              <Image source={{ uri: `data:image/jpg;base64,${data[imageIndex]?.img_testeo}` }}
+                style={{ width: 250, height: 250 }} />
             </View>
 
-            //Hacer un if para comparar el numero ingresado con el numero correcto, haciendolo como esta aca arriba.
-
           }
-          <MyTextInput onChangeText={(text) => setNumeroElegido(text)} keyboardType="number-pad" placeholder='Escriba el numero de arriba' image='user' />
+          <View style={{top:80}}>
+          <TextInput style={mainStyles.inputView} onChangeText={(text) => setNumeroElegido(text)} keyboardType="number-pad" placeholder='Escriba el numero de arriba' clearTextOnFocus='true'  />        
+          </View>
 
-          {/* enviarDatos(setNumeroElegido) */}
 
+          <View style={{top:80}}>
           {
             imageIndex !== data.length - 1 ?
 
-              //1. Guardar el input del numero ingresado
-              //Llamar a la funcion "enviar datos" con 3 parametros: Usuario, ID, numero ingresado
+            <View style={[styles.loginBtn]}>
+            <TouchableOpacity
+              onPress={() => siguienteImagen(numeroElegido)}>
+              <Text style={styles.loginText}>Siguiente</Text>
+            </TouchableOpacity>
+          </View>
+          :
+          <View style={[styles.loginBtn]}>
+            <TouchableOpacity
+              onPress={() => navigateTo('Resultados')}>
+              <Text style={styles.loginText}>Finalizar</Text>
+            </TouchableOpacity>
+          </View>
 
-
-
-              <MyButton
-                titulo='Siguiente imagen'
-                onPress={() => siguienteImagen(numeroElegido)} /> : <MyButton
-                titulo='Finalizar'
-                onPress={() => navigation.navigate('Inicio')} />
           }
+          </View>
+
         </View>
-      </ScrollView>
-    </SafeAreaView>
-
-
-
-
+        </ScrollView>
+        </KeyboardAvoidingView>
   )
 
 
@@ -117,8 +122,25 @@ const Test = () =>  {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  loginBtn: {
+    width: 150,
+    backgroundColor: '#9289FF',
+    borderRadius: 25,
+    height: 55,
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: 10,
+    marginBottom: 10,
+    //left: 20,
+  },
+  loginText: {
+    color: 'black',
+    fontSize: 24,
+    fontStyle: 'normal'
   },
 });

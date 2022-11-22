@@ -39,7 +39,7 @@ const mainStyles = StyleSheet.create({
         
       },
     inputView: {
-        width: '90%',
+        width: 230,
         backgroundColor: '#DFDFDF',
         borderRadius: 25,
         height: 60,
@@ -51,7 +51,6 @@ const mainStyles = StyleSheet.create({
       inputText: {
         height: 50,
         color: 'black',
-        fontFamily: 'Nunito-light',
         fontSize:22,
         right: 20,
     },
@@ -62,14 +61,12 @@ const mainStyles = StyleSheet.create({
         justifyContent:'center',
         color: 'black',
         //alignItems: 'center',
-        fontFamily: "Nunito-Bold"
     },
 
     leftText: {
         fontSize: 72,
         marginTop: 50,
         color: color.BLACK,
-        fontFamily: "Nunito-SemiBold",
         bottom:15, 
         right: 10,
     },
@@ -77,7 +74,6 @@ const mainStyles = StyleSheet.create({
         fontSize: 61,
         marginTop: 60,
         color: color.BLACK,
-        fontFamily: "Nunito-SemiBold"
     },
     logText: {
         fontSize: 61,
@@ -86,7 +82,6 @@ const mainStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         color: color.BLACK,
-        fontFamily: "Nunito-SemiBold"
     },
     unoText: {
         marginTop: 50,
@@ -94,25 +89,21 @@ const mainStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         color: color.BLACK,
-        fontFamily: "Nunito-SemiBold"
     },
     dosText: {
         color: 'black',
         fontSize: 30,
-        fontFamily: 'Nunito-light',
         fontStyle: 'normal'
       },
     
     inicioText :{
         color: 'black',
         fontSize: 20,
-        fontFamily: 'Nunito-light',
     
       },
       loginText: {
         color: 'black',
         fontSize: 30,
-        fontFamily: 'Nunito-light',
       },
 
     btnMain: {
@@ -133,7 +124,6 @@ const mainStyles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 10,
         marginBottom: 10,
-      fontFamily: 'Nunito-Bold',
       left: 50,
     
       },
@@ -172,7 +162,6 @@ const mainStyles = StyleSheet.create({
         fontSize: 17,
         color: color.WHITE,
         paddingVertical: 15,
-        fontFamily: 'Nunito-Bold',
     },
 
     btnMVP: {
@@ -196,7 +185,6 @@ const mainStyles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 10,
         marginBottom: 10,
-        fontFamily: 'Nunito-Regular',
         //left: 20,
       },
       otro2Btn: {
@@ -209,14 +197,12 @@ const mainStyles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 10,
         marginBottom: 10,
-        fontFamily: 'Nunito-Regular',
         //left: 20,
       },
 
     txtTransparent: {
         color: color.LIGHTPRIMARYCOLOR,
         fontSize: 14,
-        fontFamily: 'Nunito-Light',
     }
     
 })
@@ -274,7 +260,6 @@ const registroStyles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 10,
         marginBottom: 10,
-        fontFamily: 'Nunito-Bold',
         borderColor:'pink',
         border: 20,
       },
@@ -282,7 +267,6 @@ const registroStyles = StyleSheet.create({
       socialText: {
         color: 'black',
         fontSize: 14,
-        fontFamily: 'Nunito-Bold',
         left:14,
       },
       

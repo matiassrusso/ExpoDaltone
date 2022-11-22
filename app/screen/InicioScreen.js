@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 import { mainStyles, registroStyles } from '@styles/styles'
 import { SocialIcon } from '@rneui/themed';
 import { useNavigation } from '@react-navigation/native'
+import { ScrollView } from 'react-native-gesture-handler';
+import { useFonts } from 'expo-font';
 
 
 
@@ -12,18 +14,18 @@ import { useNavigation } from '@react-navigation/native'
 const Inicio = () =>  {
   const navigation = useNavigation();
 
+
   return (
+    <ScrollView>
     <View style={[styles.container]}>
-      <View style={mainStyles.container}>
-        <Text style={[mainStyles.logText, { paddingBottom: 50, textAlign: 'center', }]}>Iniciar sesion </Text>
+      <View style={[mainStyles.container, {bottom:0}]}>
+        <Text style={[mainStyles.logText, {bottom: 35, textAlign: 'center', }]}>Iniciar sesion </Text>
 
         <View style={[styles.inputView, { paddingTop: 25 }]}>
           <TextInput
             style={styles.inputText}
-            placeholder="E-mail"
-            keyboardType="email-address"
+            placeholder="Usuario"
             placeholderTextColor="#000000"
-            onChangeText={(text) => setEmail(text)}
           />
         </View>
 
@@ -32,18 +34,17 @@ const Inicio = () =>  {
             style={styles.inputText}
             placeholder="Contraseña"
             placeholderTextColor="#000000"
-            onChangeText={(text) => setPassword(text)}
           />
         </View>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate('Contacto')}>
+          onPress={() => navigation.navigate('Pantallas')}>
           <Text style={[styles.inicioText, { color: 'black' }, { textDecorationLine: 'underline' }, { textAlign: 'center' }, { paddingTop: 25 }, { bottom: 27 }, {}]}>¿Olvidaste tu contraseña?</Text>
         </TouchableOpacity>
 
         <View style={[styles.loginBtn]}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('MVP')}>
+            onPress={() => navigation.navigate('Pantallas')}>
             <Text style={styles.loginText}>Iniciar sesion</Text>
           </TouchableOpacity>
         </View>
@@ -74,15 +75,16 @@ const Inicio = () =>  {
           />
           </TouchableOpacity>
         </View>
-        <View>
-          <Text style={[styles.inicioText, { top: 1 }, { right: 75, bottom: 100 }]}>Nuevo en Daltone</Text>
+        <View style={[{top:10}]}>
+          <Text style={[styles.inicioText, { top: 1 }, { right: 75, bottom: 100,  }]}>Nuevo en Daltone</Text>
           <TouchableOpacity
             onPress={() => navigation.navigate('Registro')}>
-            <Text style={[styles.inicioText, { color: '#0066CC' }, { textDecorationLine: 'underline' }, { left: 88 }, { bottom: 26 }]}>Crear una cuenta</Text>
+            <Text style={[styles.inicioText, { color: '#0066CC' }, { textDecorationLine: 'underline' }, { left: 90 }, { bottom: 22.7 }]}>Crear una cuenta</Text>
           </TouchableOpacity>
         </View>
       </View>
     </View>
+    </ScrollView>
   );
 }
 export default Inicio
@@ -149,7 +151,6 @@ const styles = StyleSheet.create({
   inputText: {
     height: 50,
     color: 'black',
-    fontFamily: 'Nunito-light',
     fontSize: 24,
     right: 13,
     bottom:1,
@@ -169,19 +170,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 10,
     marginBottom: 10,
-    fontFamily: 'Nunito-Regular',
     //left: 20,
   },
   loginText: {
     color: 'black',
     fontSize: 30,
-    fontFamily: 'Nunito-light',
     fontStyle: 'normal'
   },
   inicioText: {
     color: 'black',
     fontSize: 20,
-    fontFamily: 'Nunito-light',
 
   },
 

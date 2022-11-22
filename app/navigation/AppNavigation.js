@@ -12,7 +12,7 @@ import InicioScreen from "@screen/InicioScreen"
 import ContactoScreen from "@screen/ContactoScreen"
 import BienvenidoScreen from "@screen/BienvenidoScreen"
 import ResultadosTest from "@screen/ResultadosTest"
-
+import Protanopia from "@screen/Protanopia"
 
 
 
@@ -108,6 +108,24 @@ const Stack = createStackNavigator({
             headerShown: false,
         }
     },
+    Protanopia:{
+        screen: Protanopia,
+        navigationOptions:{
+            headerShown: false,
+        }
+    },
+    Deuteranopia:{
+        screen: Deuteranopia,
+        navigationOptions:{
+            headerShown: false,
+        }
+    },
+    Tritanopia:{
+        screen: Tritanopia,
+        navigationOptions:{
+            headerShown: false,
+        }
+    }
    
 })
 
